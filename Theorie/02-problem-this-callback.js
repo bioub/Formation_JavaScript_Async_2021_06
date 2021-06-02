@@ -1,5 +1,5 @@
 class Contact {
-  name = 'Romain';
+  name = 'Romain'; // ES2022
 
   hello() {
     setTimeout(function() {

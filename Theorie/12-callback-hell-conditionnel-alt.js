@@ -97,8 +97,8 @@ async function mkdirIfNotExistsAsyncAwait(dirPath) {
 (async function () {
   try {
     await mkdirIfNotExistsAsyncAwait('tmp');
-    const data = await fs.readFileSync('.prettierrc');
-    await fs.writeFileSync('tmp/.prettierrc.copy', data);
+    const data = await fs.promises.readFile('.prettierrc');
+    await fs.promises.writeFile('tmp/.prettierrc.copy', data);
     console.log('Copy Done');
   } catch (err) {
     console.log(err);

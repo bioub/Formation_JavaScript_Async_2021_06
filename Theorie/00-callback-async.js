@@ -1,8 +1,20 @@
 'use strict';
 
-setTimeout(() => console.log('A'), 500);
+function lambda() {
+  console.log('A')
+}
+
+function closureScope(lettre) {
+  // portée sauvegardée
+  return () => {
+    console.log(lettre)
+  }
+}
+
+setTimeout(lambda, 500);
 setTimeout(() => console.log('B'), 0);
 setTimeout(() => console.log('C'), 1000);
+setTimeout(closureScope('C'), 1000);
 setTimeout((lettre) => console.log(lettre), 500, 'D');
 
 console.log('E');
@@ -17,7 +29,7 @@ console.log('E');
 // |
 // |                              lg        lg    lg          lg
 // |st - st - st - st - lg ..⟳.. cbB ..⟳.. cbA - cbD ..⟳..  cbC
-// +------------------------------7ms-------500ms-------------100ms--> temps
+// +------------------------------7ms-------500ms-------------1000ms--> temps
 // Sortie               E         B         A     D           C
 
 // Enregistré 4 callback

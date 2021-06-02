@@ -28,6 +28,18 @@ fs.readFile('.prettierrc', (err, data) => {
   }
 });
 
+// ^
+// |
+// |                   writeFile               log
+// |readFile ...       cbReadFile ...          cbWriteFile
+// +-------------------------------------------------------->
+
+// File d'attente (0ms) :
+// File d'attente (20ms) : cbReadFile
+// File d'attente (21ms) :
+// File d'attente (60ms) : cbWriteFile
+
+
 // Version asynchrone basée sur des promesses
 // - non bloquante
 // - les données (s'il y en a) -> 1er param du callback du then
@@ -42,12 +54,12 @@ fs.readFile('.prettierrc', (err, data) => {
 
 // Promise est un API (classe) apparu en ES2015
 // avant 2015 on utilisait des bibliothèques : bluebird, q...
-fs.promises
-  .readFile('.prettierrc')
+fs.promises.readFile('.prettierrc')
   .then((data) => fs.promises.writeFile('.prettierrc.copy', data))
   .then(() => console.log('Copy Done'))
   .catch((err) => console.log(err));
 
+// ES2017 async/await
 (async function () {
   try {
     console.log('1');
