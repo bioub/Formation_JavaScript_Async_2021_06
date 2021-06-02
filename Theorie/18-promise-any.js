@@ -33,9 +33,9 @@ Promise.any([
   fakeRequest('/api/users'),
   fakeRequest('/api/todos'),
   fakeRequest('/api/companies'),
-]).then((responses) => {
+]).then((response) => {
   console.timeEnd('duree');
-  console.log(responses);
+  console.log(response);
 }).catch((err) => {
   console.log(err);
 });

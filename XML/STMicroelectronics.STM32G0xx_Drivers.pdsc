@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package schemaVersion="1.6.3" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>STMicroelectronics</vendor>
+  <name>STM32G0xx_Drivers</name>
+  <description>STMicroelectronics STM32G0 Series HAL and LL</description>
+  <url>https://citools.st.com/artifacts/artifactory/list/cube20poc-codex-st-com/packs/STMicroelectronics.STM32G0xx_Drivers</url>
+
+  <releases>
+    <release version="0.0.1" date="2020-11-24">
+      Initial release with HAL/LL drivers
+    </release>
+ </releases>
+
+  <keywords>
+    <keyword>ST</keyword>
+    <keyword>STMicroelectronics</keyword>
+    <keyword>HAL</keyword>
+    <keyword>LL</keyword>
+    <keyword>STM32G0</keyword>
+    <keyword>STM32G0xx</keyword>
+  </keywords>
+
+  <conditions>
+    <!-- Compiler Conditions -->
+    <condition id="Compiler ARMCC">
+      <require Tcompiler="ARMCC"/>
+    </condition>
+    <condition id="Compiler GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="Compiler IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <!-- Device Conditions -->
+    <condition id="STM32G0">
+      <description>STMicroelectronics STM32G0 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G0*"/>
+    </condition>
+
+    <condition id="STM32G030">
+      <description>STMicroelectronics STM32G030 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G030*"/>
+    </condition>
+    <condition id="STM32G031">
+      <description>STMicroelectronics STM32G031 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G031*"/>
+    </condition>
+    <condition id="STM32G041">
+      <description>STMicroelectronics STM32G041 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G041*"/>
+    </condition>
+    <condition id="STM32G070">
+      <description>STMicroelectronics STM32G070 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G070*"/>
+    </condition>
+    <condition id="STM32G071">
+      <description>STMicroelectronics STM32G071 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G071*"/>
+    </condition>
+    <condition id="STM32G081">
+      <description>STMicroelectronics STM32G081 Devices</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G081*"/>
+    </condition>
+
+    <!-- Device + Compiler Conditions (ARMCC) -->
+    <condition id="STM32G030 ARMCC" >
+      <description>STMicroelectronics STM32G030 Devices and ARMCC Compiler</description>
+      <require condition="STM32G030"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G031 ARMCC" >
+      <description>STMicroelectronics STM32G031 Devices and ARMCC Compiler</description>
+      <require condition="STM32G031"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G041 ARMCC" >
+      <description>STMicroelectronics STM32G041 Devices and ARMCC Compiler</description>
+      <require condition="STM32G041"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G070 ARMCC" >
+      <description>STMicroelectronics STM32G070 Devices and ARMCC Compiler</description>
+      <require condition="STM32G070"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G071 ARMCC" >
+      <description>STMicroelectronics STM32G071 Devices and ARMCC Compiler</description>
+      <require condition="STM32G071"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G081 ARMCC" >
+      <description>STMicroelectronics STM32G081 Devices and ARMCC Compiler</description>
+      <require condition="STM32G081"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+
+    <condition id="STM32G0x0 ARMCC" >
+      <description>STMicroelectronics STM32G0x0 Devices and ARMCC Compiler</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G0?0*"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G0x1 ARMCC" >
+      <description>STMicroelectronics STM32G0x1 Devices and ARMCC Compiler</description>
+      <require Dvendor="STMicroelectronics:13" Dname="STM32G0?1*"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+    <condition id="STM32G0xx ARMCC" >
+      <description>STMicroelectronics STM32G0xx Devices and ARMCC Compiler</description>
+      <require condition="STM32G0"/>
+      <require condition="Compiler ARMCC"/>
+    </condition>
+
+
+    <!-- Device + Compiler Conditions (GCC) -->
+    <condition id="STM32G030 GCC" >
+      <description>STMicroelectronics STM32G030 Devices and GCC Compiler</description>
+      <require condition="STM32G030"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+    <condition id="STM32G031 GCC" >
+      <description>STMicroelectronics STM32G031 Devices and GCC Compiler</description>
+      <require condition="STM32G031"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+    <condition id="STM32G041 GCC" >
+      <description>STMicroelectronics STM32G041 Devices and GCC Compiler</description>
+      <require condition="STM32G041"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+    <condition id="STM32G070 GCC" >
+      <description>STMicroelectronics STM32G070 Devices and GCC Compiler</description>
+      <require condition="STM32G070"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+    <condition id="STM32G071 GCC" >
+      <description>STMicroelectronics STM32G071 Devices and GCC Compiler</description>
+      <require condition="STM32G071"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+    <condition id="STM32G081 GCC" >
+      <description>STMicroelectronics STM32G081 Devices and GCC Compiler</description>
+      <require condition="STM32G081"/>
+      <require condition="Compiler GCC"/>
+    </condition>
+
+    <!-- Device + Compiler Conditions (IAR) -->
+    <condition id="STM32G030 IAR" >
+      <description>STMicroelectronics STM32G030 Devices and IAR Compiler</description>
+      <require condition="STM32G030"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+    <condition id="STM32G031 IAR" >
+      <description>STMicroelectronics STM32G031 Devices and IAR Compiler</description>
+      <require condition="STM32G031"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+    <condition id="STM32G041 IAR" >
+      <description>STMicroelectronics STM32G041 Devices and IAR Compiler</description>
+      <require condition="STM32G041"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+    <condition id="STM32G070 IAR" >
+      <description>STMicroelectronics STM32G070 Devices and IAR Compiler</description>
+      <require condition="STM32G070"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+    <condition id="STM32G071 IAR" >
+      <description>STMicroelectronics STM32G071 Devices and IAR Compiler</description>
+      <require condition="STM32G071"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+    <condition id="STM32G081 IAR" >
+      <description>STMicroelectronics STM32G081 Devices and IAR Compiler</description>
+      <require condition="STM32G081"/>
+      <require condition="Compiler IAR"/>
+    </condition>
+
+    <!-- Device + CMSIS Conditions -->
+    <condition id="STM32G0 CMSIS">
+      <description>STMicroelectronics STM32G0 Device and CMSIS-CORE</description>
+      <require condition="STM32G0"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <!-- HAL Conditions -->
+    <condition id="STM32G0 HAL">
+      <description>STMicroelectronics STM32G0 Device and HAL</description>
+      <require condition="STM32G0"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common"/>
+    </condition>
+    <condition id="STM32G0 HAL Common">
+      <description>STMicroelectronics STM32G0 Device and HAL Common</description>
+      <require condition="STM32G0"/>
+      <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <!-- <require Cclass="Device" Cgroup="STM32Cube Framework"/> -->
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="Cortex"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="RCC"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="PWR"/>
+    </condition>
+    <condition id="STM32G0 HAL DMA">
+      <description>STMicroelectronics STM32G0 Device and HAL with DMA</description>
+      <require condition="STM32G0"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="DMA"/>
+    </condition>
+    <condition id="STM32G0 HAL GPIO">
+      <description>STMicroelectronics STM32G0 Device and HAL with GPIO</description>
+      <require condition="STM32G0"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common"/>
+      <require Cclass="Device" Cgroup="STM32Cube HAL" Csub="GPIO"/>
+    </condition>
+
+    <!-- LL driver Conditions -->
+    <condition id="STM32G0 LL">
+      <description>STMicroelectronics STM32G0 Device and LL</description>
+      <require condition="STM32G0"/>
+      <require Cclass="Device" Cgroup="STM32Cube LL" Csub="Common"/>
+    </condition>
+    <condition id="STM32G0 LL Common">
+      <description>STMicroelectronics STM32G0 Device and LL</description>
+      <require condition="STM32G0"/>
+      <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <!-- <require Cclass="Device" Cgroup="STM32Cube Framework"/> -->
+      <require Cclass="Device" Cgroup="STM32Cube LL" Csub="UTILS"/>
+      <require Cclass="Device" Cgroup="STM32Cube LL" Csub="RCC"/>
+      <require Cclass="Device" Cgroup="STM32Cube LL" Csub="PWR"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <!-- START: STMicroelectronics STM32CubeG0 HAL -->
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common"    Cversion="1.3.0" condition="STM32G0 HAL Common">
+      <description>Common HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_COMMON
+      </RTE_Components_h>
+      <files>
+        <file category="include" name="Inc/"/>
+        <file category="include" name="Inc/Legacy/"/>
+        <file category="header"  name="Inc/stm32g0xx_hal.h"/>
+        <file category="source"  name="Src/stm32g0xx_hal.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="ADC"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Analog-to-digital converter (ADC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_ADC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_adc.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_adc_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="CEC"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Consumer Electronics Control (CEC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_CEC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_cec.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="COMP"      Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Comparator (COMP) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_COMP
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_comp.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Cortex"    Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Cortex HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_CORTEX
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_cortex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="CRC"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>CRC calculation unit (CRC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_CRC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_crc.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_crc_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="CRYP"      Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Cryptographic processor (CRYP) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_CRYP
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_cryp.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_cryp_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="DAC"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Digital-to-analog converter (DAC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_DAC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_dac.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_dac_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="DMA"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>DMA controller (DMA) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_DMA
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_dma.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_dma_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="EXTI"      Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>External Interrupt HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_EXTI
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_exti.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Flash"     Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Embedded Flash memory HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_FLASH
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_flash.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_flash_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="GPIO"      Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>General-purpose I/O (GPIO) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_GPIO
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_gpio.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="I2C"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Inter-integrated circuit (I2C) interface HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_I2C
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_i2c.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_i2c_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="I2S"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>I2S HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_I2S
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_i2s.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="IRDA"      Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>IrDA HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_IRDA
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_irda.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="IWDG"      Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Independent watchdog (IWDG) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_IWDG
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_iwdg.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="LPTIM"     Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Low-power timer (LPTIM) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_LPTIM
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_lptim.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="PWR"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Power controller (PWR) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_PWR
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_pwr.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_pwr_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="RCC"       Cversion="1.3.0" condition="STM32G0 HAL GPIO">
+      <description>Reset and clock control (RCC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_RCC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_rcc.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_rcc_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="RNG"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Random number generator (RNG) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_RNG
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_rng.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="RTC"       Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Real-time clock (RTC) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_RTC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_rtc.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_rtc_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Smartcard" Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Smartcard HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_SMARTCARD
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_smartcard.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_smartcard_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="SMBUS"     Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>System Management Bus (SMBus) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_SMBUS
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_smbus.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="SPI"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Serial peripheral interface (SPI) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_SPI
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_spi.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_spi_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="TIM"       Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Timers (TIM) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_TIM
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_tim.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_tim_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="UART"      Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Universal asynchronous receiver transmitter (UART) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_UART
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_uart.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_uart_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="USART"     Cversion="1.3.0" condition="STM32G0 HAL DMA">
+      <description>Universal synchronous asynchronous receiver transmitter (USART) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_USART
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_usart.c"/>
+        <file category="source" name="Src/stm32g0xx_hal_usart_ex.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="WWDG"      Cversion="1.3.0" condition="STM32G0 HAL">
+      <description>Window watchdog (WWDG) HAL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_HAL_WWDG
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_hal_wwdg.c"/>
+      </files>
+    </component>
+    <!-- END: STMicroelectronics STM32CubeG0 HAL -->
+
+    <!-- START: STMicroelectronics STM32CubeG0 LL -->
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="Common"     Cversion="1.3.0" condition="STM32G0 LL Common">
+      <description>Common LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_COMMON
+      </RTE_Components_h>
+      <files>
+        <file category="include" name="Inc/"/>
+        <file category="include" name="Inc/Legacy/"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="ADC"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Analog-to-digital converter (ADC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_ADC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_adc.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="COMP"       Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Analog Comparator (CRC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_COMP
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_comp.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="CRC"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>CRC calculation unit (CRC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_CRC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_crc.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="DAC"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Digital-to-analog converter (DAC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_DAC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_dac.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="DMA"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>DMA controller (DMA) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_DMA
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_dma.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="EXTI"       Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Extended interrupts and events controler (EXTI) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_EXTI
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_exti.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="GPIO"       Cversion="1.3.0" condition="STM32G0 LL">
+      <description>General-purpose I/O (GPIO) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_GPIO
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_gpio.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="I2C"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Inter-integrated circuit (I2C) interface LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_I2C
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_i2c.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="LPTIM"      Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Low-power timer (LPTIM) interface LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_LPTIM
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_lptim.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="LPUART"     Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Low-power universal asynchronous receiver transmitter (LPUART) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_LPUART
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_lpuart.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="PWR"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Power controller (PWR) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_PWR
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_pwr.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="RCC"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Reset and clock control (RCC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_RCC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_rcc.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="RNG"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Random number generator (RNG) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_RNG
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_rng.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="RTC"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Real-time clock (RTC) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_RTC
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_rtc.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="SPI"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Serial peripheral interface (SPI) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_SPI
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_spi.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="TIM"        Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Timers (TIM) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_TIM
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_tim.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="UCPD"       Cversion="1.3.0" condition="STM32G0 LL">
+      <description>USB Type-C / USB Power Delivery interface (UCPD) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_UCPD
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_ucpd.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="USART"      Cversion="1.3.0" condition="STM32G0 LL">
+      <description>Universal synchronous asynchronous receiver transmitter (USART) LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_USART
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_usart.c"/>
+      </files>
+    </component>
+    <component Cclass="Device" Cgroup="STM32Cube LL" Csub="UTILS"      Cversion="1.3.0" condition="STM32G0">
+      <description>UTILS LL driver</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_LL_UTILS
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Src/stm32g0xx_ll_utils.c"/>
+      </files>
+    </component>
+    <!-- END: STMicroelectronics STM32CubeG0 LL -->
+
+  </components>
+
+</package>
+
